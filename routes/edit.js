@@ -1,5 +1,5 @@
 const express = require('express')
-const myConnection = require('../lib/mySqlDb.js')
+const newConnection = require('../lib/mySqlDb.js')
 const bodyParser = require('body-parser')
 
 input = bodyParser.urlencoded({ extended: false })
@@ -9,8 +9,8 @@ editRouter.use(bodyParser.json())
 editRouter.use(bodyParser.urlencoded({ extended: false }))
 editRouter.get('/edit/:id', (req, res) => {
     const id = req.params.id;
-    let sql = `SELECT * FROM cars where id = ${id}`
-    let query = myConnection.query(sql, (err, records) => {
+    let sql = `SELECT * FROM cars WHERE ID = ${id}`
+    let query = newConnection.query(sql, (err, cars) => {
         if (err) throw err;
         res.render('edit', {
             records: cars[0],
@@ -31,11 +31,11 @@ editRouter.post('/save', input, (req, res) => {
         const COLOR = req.body.COLOR
         const CONDITION = req.body.CONDITION
 
-    let sql = `UPDATE cars
-    SET CAR_NAME='${CAR_NAME}',BRAND='${BRAND}',BODY_TYPE='${BODY_TYPE}',YEAR='${YEAR}',TRANSMISSION='${TRANSMISSION}',TYPE='${TYPE}',ENGINE='${ENGINE}',SEAT ='${SEAT }',COLOR='${COLOR}',CONDITION='${CONDITION}'
-    WHERE ID=${getID}`
-    let query = myConnection.query(sql, (err, cars) => {
+    let sql = "UPDATE `cars` SET `CAR_NAME` = '"+ CAR_NAME +"', `BRAND` = '"+ BRAND +"',`BODY_TYPE` = '"+ BODY_TYPE +"', `YEAR`= '"+ YEAR +"', `TRANSMISSION`  = '"+ TRANSMISSION +"', `TYPE` = '"+ TYPE +"', `ENGINE` = '"+ ENGINE +"', `SEAT` = '"+ SEAT +"', `COLOR`= '"+ COLOR +"', `CONDITION` = '"+ CONDITION +"' WHERE `cars`.`ID` = '"+ getId +"'"
+
+    let query = newConnection.query(sql, (err, cars) => {
         res.redirect('/')
+        console.log(sql)
     })
 
 })

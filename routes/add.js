@@ -1,6 +1,6 @@
 //IMPORT
 const express = require('express')
-const myConnection = require('../lib/mySqlDb.js')
+const newConnection = require('../lib/mySqlDb.js')
 const addRouter = express.Router()
 
 addRouter.get('/add', (req, res)=>{
@@ -25,21 +25,21 @@ addRouter.post('/update',(req, res)=>{
         CONDITION: req.body.CONDITION
     }
     let sql = 'INSERT INTO cars set ?'
-    let query = myConnection.query(sql, dataInput, (err, cars)=>{
+    let query = newConnection.query(sql, dataInput, (err, cars)=>{
         if(err) throw err
-        res.json(cars)
+        res.redirect('/')
         //res.status(202).send('Nice!')
     let sql = 'SELECT * from cars'
-    let query = myConnection.query(sql, (err, cars) =>{
+    // let query = newConnection.query(sql, (err, cars) =>{
         
-        if (err) throw err
-        err.render('index', {
-            header: 'New Records',
-            records: cars,
-            isAdd: true
-        })
-    })
+    //     if (err) throw err
+    //     err.render('index', {
+    //         header: 'New Records',
+    //         records: cars,
+    //         isAdd: true
+    //     })
+    // })
     })
 
 })
-module.exports =addRouter
+module.exports = addRouter

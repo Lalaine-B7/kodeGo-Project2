@@ -21,7 +21,7 @@ app.use('/', editRouter)
 //PULL ALL RECORDS
 app.get('/',(req, res)=>{
     let sql = 'SELECT * from cars'
-    let query = myConnection.query(sql,(err, cars)=>{
+    let query = newConnection.query(sql,(err, cars)=>{
         if(err) throw err
         // res.json(cars)
         res.render('index', {
@@ -35,7 +35,7 @@ app.get('/',(req, res)=>{
 //DELETE DATA
 app.get('/delete/:id', (req, res) => {
     const id = req.params.id
-    let sql = `DELETE FROM records WHERE id=${id}`
+    let sql = `DELETE FROM cars WHERE id=${id}`
     let query = newConnection.query(sql, (err, cars) => {
         if (err) throw err
         res.redirect('/');

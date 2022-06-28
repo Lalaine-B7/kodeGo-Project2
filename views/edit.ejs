@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
     <title>Mini Project2</title>
 </head>
 <body class="container">
@@ -14,47 +15,47 @@
 
         <div class="form-group">
             <label for="ID">ID</label>
-            <input required type="number" class="form-control" id="ID" name="CAR_NAME" value="<%=cars.ID%" disabled>
+            <input required type="number" class="form-control" id="ID" name="ID" value="<%= records.ID%>" disabled>
         </div>
         <div class="form-group">
             <label for="CAR_NAME">CAR_NAME</label>
-            <input required type="text" class="form-control" id="CAR_NAME" name="CAR_NAME" value="<%=cars.CAR_NAME%" required>
+            <input required type="text" class="form-control" id="CAR_NAME" name="CAR_NAME" value="<%= records.CAR_NAME%>" required>
         </div>
         <div class="form-group">
             <label for="BRAND">BRAND</label>
-            <input required type="text" class="form-control" id="BRAND" name="BRAND" value="<%=cars.BRAND%" required>
+            <input required type="text" class="form-control" id="BRAND" name="BRAND" value="<%= records.BRAND%>" required>
         </div>
         <div class="form-group">
             <label for="BODY_TYPE">BODY_TYPE</label>
-            <input required type="text" class="form-control" id="BODY_TYPE" name="BODY_TYPE" value="<%=cars.BODY_TYPE%" required>
+            <input required type="text" class="form-control" id="BODY_TYPE" name="BODY_TYPE" value="<%= records.BODY_TYPE%>" required>
         </div>
         <div class="form-group">
             <label for="YEAR">YEAR</label>
-            <input required type="number" class="form-control" id="YEAR" name="YEAR" value="<%=cars.YEAR%" required>
+            <input required type="number" class="form-control" id="YEAR" name="YEAR" value="<%= records.YEAR%>" required>
         </div>
         <div class="form-group">
             <label for="TRANSMISSION">TRANSMISSION</label>
-            <input required type="text" class="form-control" id="TRANSMISSION" name="TRANSMISSION" value="<%=cars.TRANSMISSION%" required>
+            <input required type="text" class="form-control" id="TRANSMISSION" name="TRANSMISSION" value="<%= records.TRANSMISSION%>" required>
         </div>
         <div class="form-group">
             <label for="TYPE">TYPE</label>
-            <input required type="text" class="form-control" id="TYPE" name="TYPE" value="<%=cars.TRANSMISSION%" required>
+            <input required type="text" class="form-control" id="TYPE" name="TYPE" value="<%= records.TRANSMISSION%>" required>
         </div>
         <div class="form-group">
             <label for="ENGINE">ENGINE</label>
-            <input required type="text" class="form-control" id="ENGINE" name="ENGINE" value="<%=cars.ENGINE%" required>
+            <input required type="text" class="form-control" id="ENGINE" name="ENGINE" value="<%= records.ENGINE%>" required>
         </div>
         <div class="form-group">
             <label for="SEAT">SEAT</label>
-            <input required type="number" class="form-control" id="SEAT" name="SEAT" value="<%=cars.SEAT%" required>
+            <input required type="number" class="form-control" id="SEAT" name="SEAT" value="<%= records.SEAT%>" required>
         </div>
         <div class="form-group">
             <label for="COLOR">COLOR</label>
-            <input required type="text" class="form-control" id="COLOR" name="COLOR" value="<%=cars.COLOR%" required>
-        </div>
+            <input required type="text" class="form-control" id="COLOR" name="COLOR" value="<%= records.COLOR%>" required>
+        </div> 
         <div class="form-group">
             <label for="CONDITION">CONDITION</label>
-            <input required type="text" class="form-control" id="CONDITION" name="CONDITION" value="<%=cars.CONDITION%" required>
+            <input required type="text" class="form-control" id="CONDITION" name="CONDITION" value="<%= records.CONDITION%>" required>
         </div>
         <button type="submit" class="btn btn-primary mb-2">Submit</button>
     </form>
