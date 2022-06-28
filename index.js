@@ -2,10 +2,9 @@
 const express = require('express')
 const ejs = require('ejs')
 const bodyParser = require('body-parser')
-const mySql = require('mysql')
-
+const newConnection = require('./lib/mySqlDb.js')
 const addRouter = require('./routes/add.js')
-
+const editRouter = require('./routes/edit.js')
 const port = 3001
 const app = express()
 
@@ -17,6 +16,9 @@ app.use(bodyParser.urlencoded({ extended: false}))
 
 //ROUTES
 app.use('/', addRouter)
+app.use('/', editRouter)
+
+//PULL ALL RECORDS
 app.get('/',(req, res)=>{
     let sql = 'SELECT * from cars'
     let query = myConnection.query(sql,(err, cars)=>{
@@ -24,27 +26,31 @@ app.get('/',(req, res)=>{
         // res.json(cars)
         res.render('index', {
             header:'Cars',
-            records: cars
+            records: cars,
+            isAdd: false
         })
     })
 })
 
-
-//DATABASE CONNECTION
-
-//CONNECTION(PORT & SERVER) CONNECTION CHECKING
-const myConnection = mySql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'',
-    database:'mysqldb100'
+//DELETE DATA
+app.get('/delete/:id', (req, res) => {
+    const id = req.params.id
+    let sql = `DELETE FROM records WHERE id=${id}`
+    let query = newConnection.query(sql, (err, cars) => {
+        if (err) throw err
+        res.redirect('/');
+        // res.send('record deleted')
+    })
 })
-myConnection.connect(function(error){
-if(!!error)console.log(error) 
-else console.log('Connected to mysqldb100!')
 
-
+//CONNECTION CHECKING
+newConnection.connect(function(error) {
+    try {
+        console.log('Connection to the database is Successfull!')
+    } catch (err) {
+        console.log(err)
+    }
 })
-app.listen(port, ()=>{
-    console.log(`connected at port ${port}`)
+app.listen(port, () => {
+    console.log(`Port is now running at ${port}`)
 })
