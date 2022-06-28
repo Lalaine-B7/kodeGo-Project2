@@ -10,47 +10,51 @@
 <body class="container">
     <h1><%=header%></h1>
    
-    <form action="/update" method="post">
-    
+    <form action="/save" method="post">
+
+        <div class="form-group">
+            <label for="ID">ID</label>
+            <input required type="number" class="form-control" id="ID" name="CAR_NAME" value="<%=cars.ID%" disabled>
+        </div>
         <div class="form-group">
             <label for="CAR_NAME">CAR_NAME</label>
-            <input required type="text" class="form-control" id="CAR_NAME" name="CAR_NAME" placeholder="">
+            <input required type="text" class="form-control" id="CAR_NAME" name="CAR_NAME" value="<%=cars.CAR_NAME%" required>
         </div>
         <div class="form-group">
             <label for="BRAND">BRAND</label>
-            <input required type="text" class="form-control" id="BRAND" name="BRAND" placeholder="">
+            <input required type="text" class="form-control" id="BRAND" name="BRAND" value="<%=cars.BRAND%" required>
         </div>
         <div class="form-group">
             <label for="BODY_TYPE">BODY_TYPE</label>
-            <input required type="text" class="form-control" id="BODY_TYPE" name="BODY_TYPE" placeholder="">
+            <input required type="text" class="form-control" id="BODY_TYPE" name="BODY_TYPE" value="<%=cars.BODY_TYPE%" required>
         </div>
         <div class="form-group">
             <label for="YEAR">YEAR</label>
-            <input required type="number" class="form-control" id="YEAR" name="YEAR" placeholder="">
+            <input required type="number" class="form-control" id="YEAR" name="YEAR" value="<%=cars.YEAR%" required>
         </div>
         <div class="form-group">
             <label for="TRANSMISSION">TRANSMISSION</label>
-            <input required type="text" class="form-control" id="TRANSMISSION" name="TRANSMISSION" placeholder="">
+            <input required type="text" class="form-control" id="TRANSMISSION" name="TRANSMISSION" value="<%=cars.TRANSMISSION%" required>
         </div>
         <div class="form-group">
             <label for="TYPE">TYPE</label>
-            <input required type="text" class="form-control" id="TYPE" name="TYPE" placeholder="">
+            <input required type="text" class="form-control" id="TYPE" name="TYPE" value="<%=cars.TRANSMISSION%" required>
         </div>
         <div class="form-group">
             <label for="ENGINE">ENGINE</label>
-            <input required type="text" class="form-control" id="ENGINE" name="ENGINE" placeholder="">
+            <input required type="text" class="form-control" id="ENGINE" name="ENGINE" value="<%=cars.ENGINE%" required>
         </div>
         <div class="form-group">
             <label for="SEAT">SEAT</label>
-            <input required type="number" class="form-control" id="SEAT" name="SEAT" placeholder="">
+            <input required type="number" class="form-control" id="SEAT" name="SEAT" value="<%=cars.SEAT%" required>
         </div>
         <div class="form-group">
             <label for="COLOR">COLOR</label>
-            <input required type="text" class="form-control" id="COLOR" name="COLOR" placeholder="">
+            <input required type="text" class="form-control" id="COLOR" name="COLOR" value="<%=cars.COLOR%" required>
         </div>
         <div class="form-group">
             <label for="CONDITION">CONDITION</label>
-            <input required type="text" class="form-control" id="CONDITION" name="CONDITION" placeholder="">
+            <input required type="text" class="form-control" id="CONDITION" name="CONDITION" value="<%=cars.CONDITION%" required>
         </div>
         <button type="submit" class="btn btn-primary mb-2">Submit</button>
     </form>
